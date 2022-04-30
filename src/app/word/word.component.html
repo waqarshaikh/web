@@ -1,0 +1,11 @@
+<div>
+  <h1>Word App</h1>
+  <div class="main-body">
+    <input class="word-input" placeholder="Type any word" type="text">
+    <button type="button" class="word-button">Add</button>
+  </div>
+
+  <div *ngFor="let word of words">
+    {{ word.value }}
+  </div>
+</div>
