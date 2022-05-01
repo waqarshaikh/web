@@ -12,8 +12,21 @@ export class WordComponent implements OnInit {
   constructor(private wordService: WordService) { }
 
   words: Word[] = [];
+  wordValue: string = "";
 
   ngOnInit(): void {
+    this.getAllWords()
+  }
+
+  saveWord(){
+    let word = new Word(this.wordValue);
+    this.wordService.saveWord(word).subscribe({
+      next: () => this.getAllWords(),
+      error: (err) => console.log("Error saving words: "+err)
+    })
+  }
+
+  getAllWords(){
     this.wordService.getWords()
     .subscribe({
       next: (words) => this.words = words,

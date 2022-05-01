@@ -18,4 +18,9 @@ export class WordService {
     .get<ApiResponse<Word[]>>(`${this.baseUrl}/words`)
     .pipe(map((resp) => resp?.data));
   }
+
+  saveWord(word: Word) {
+    return this.http
+    .post(`${this.baseUrl}/words`, word);
+  }
 }

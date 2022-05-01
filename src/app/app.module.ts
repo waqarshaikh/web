@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WordComponent } from './word/word.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { WordComponent } from './word/word.component';
   ],
   imports: [
     HttpClientModule,
+    FormsModule,
     BrowserModule
   ],
   providers: [],
