@@ -1,3 +1,34 @@
 .word-input{
   margin-right: 10px;
 }
+
+.word-add{
+  background-color: #03476e;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.word{
+  margin-top: 5px;
+}
+
+.word-delete{
+  background-color: #6e0703;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.main{
+  margin: auto;
+  width: 50%;
+  border: 3px solid blue;
+  padding: 50px;
+}
