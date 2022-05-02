@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Word } from './models/word.model';
 import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { map } from 'rxjs/operators';
 export class WordService {
 
   private baseUrl: string = 'http://localhost:8080';
+  message = new Subject();
 
   constructor(private http: HttpClient) { }
 
@@ -22,5 +24,11 @@ export class WordService {
   saveWord(word: Word) {
     return this.http
     .post(`${this.baseUrl}/words`, word);
+  }
+
+
+  deleteWord(id: number) {
+    return this.http
+    .delete(`${this.baseUrl}/words/${id}`);
   }
 }

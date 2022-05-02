@@ -1,6 +1,9 @@
 export class Word{
+  id: number;
   value: string;
-  constructor(value: string) {
-    this.value = value
+
+  constructor(id: number, value: string){
+    this.id = id;
+    this.value = value;
   }
 }

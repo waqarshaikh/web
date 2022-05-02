@@ -1,11 +1,12 @@
-<div>
-  <h1>Word App</h1>
+<div class="main">
+  <span style="background-color: antiquewhite; padding: 5px;">{{this.message}}</span>
+  <h1>Word App </h1>
   <form class="main-body">
-    <input class="word-input" [(ngModel)]="this.wordValue" name="wordValue" placeholder="Type any word" type="text">
-    <button type="button" (click)="saveWord()" class="word-button">Add</button>
+    <input class="word-input" [(ngModel)]="this.value" name="value" placeholder="Type any word" type="text">
+    <button type="button" (click)="saveWord()" class="word-add">Add</button>
   </form>
 
-  <div *ngFor="let word of words">
-    {{ word.value }}
+  <div class="word-list" *ngFor="let word of words">
+    <div class="word">{{ word.value }} <button type="button" style="margin-left: 5px;" class="word-delete" (click)="deleteWord(word.id)">Delete</button></div>
   </div>
 </div>

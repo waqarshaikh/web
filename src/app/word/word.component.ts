@@ -1,3 +1,4 @@
+import { LoggingInterceptor } from './logging.interceptor';
 import { WordService } from './word.service';
 import { Word } from './models/word.model';
 import { Component, OnInit } from '@angular/core';
@@ -8,20 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./word.component.css']
 })
 export class WordComponent implements OnInit {
-
   constructor(private wordService: WordService) { }
 
   words: Word[] = [];
-  wordValue: string = "";
+  value: string = "";
+  message: any = ""
 
   ngOnInit(): void {
     this.getAllWords()
   }
 
   saveWord(){
-    let word = new Word(this.wordValue);
+    console.log(this.words);
+
+    let id = this.words ? this.words[this.words.length-1].id + 1: 0;
+    let word = new Word(id, this.value);
     this.wordService.saveWord(word).subscribe({
-      next: () => this.getAllWords(),
+      next: () => {
+        this.getAllWords()
+        this.wordService.message.subscribe((message)=>{
+            this.message = message;
+        });
+      },
       error: (err) => console.log("Error saving words: "+err)
     })
   }
@@ -29,7 +38,24 @@ export class WordComponent implements OnInit {
   getAllWords(){
     this.wordService.getWords()
     .subscribe({
-      next: (words) => this.words = words,
+      next: (words) => {this.words = words
+        this.wordService.message.subscribe((message)=>{
+          this.message = message;
+      });
+      },
+      error: (err) => console.log("Error fetching words: "+err)
+    })
+  }
+
+  deleteWord(id: number){
+    this.wordService.deleteWord(id)
+    .subscribe({
+      next: () => {
+        this.getAllWords()
+        this.wordService.message.subscribe((message)=>{
+            this.message = message;
+        });
+      },
       error: (err) => console.log("Error fetching words: "+err)
     })
   }
