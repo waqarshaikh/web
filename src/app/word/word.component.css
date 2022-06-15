@@ -1,34 +1,84 @@
-.word-input{
-  margin-right: 10px;
+.title {
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
 }
 
-.word-add{
-  background-color: #03476e;
-  border: none;
+.word-add {
+  background-color: #077fc5;
+  border: 3px solid white;
   color: white;
   padding: 5px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
 }
+.word-add:hover {
+  background-color: black;
+  border: 3px solid #077fc5;
+  color: white;
+  cursor: pointer;
+}
 
-.word{
+.word {
   margin-top: 5px;
 }
 
-.word-delete{
-  background-color: #6e0703;
-  border: none;
-  color: white;
+.word-delete {
+  background-color: #df101b;
+  border: 2px solid white;
   padding: 5px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  color: white;
 }
 
-.main{
+.word-delete:hover {
+  background-color: rgb(25, 25, 25);
+  border: 2px solid #df101b;
+  color: white;
+  cursor: pointer;
+}
+
+.message {
+  background-color: rgb(4, 31, 48);
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.word-value {
+  margin: auto;
+  display: inline;
+  padding: 5px;
+  font-size: larger;
+  font-family: "Space Mono", monospace;
+}
+
+.main {
   margin: auto;
   width: 50%;
-  border: 3px solid blue;
+  color: white;
+}
+
+.container {
+  border: 3px solid rgb(0, 132, 255);
+  background-color: rgb(13, 50, 80);
   padding: 50px;
+}
+
+.word-input {
+  border: 2px solid white;
+  background-color: rgb(25, 25, 25);
+  color: white;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.word-input:focus {
+  outline: none;
+}
+
+.word-list {
+  margin-top: 10px;
 }
